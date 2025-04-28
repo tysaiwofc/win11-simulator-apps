@@ -1,0 +1,642 @@
+/* Windows 11 inspired styling */
+:root {
+    --bg-color: #000000;
+    --sidebar-color: #121212;
+    --player-bar-color: #181818;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent-color: #1db954;
+    --hover-color: #282828;
+    --progress-bar: #535353;
+    --progress-bar-active: #b3b3b3;
+    --windows-accent: #0078d7;
+    --windows-glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.windows-11-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 1fr 90px;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+}
+
+.sidebar {
+    background-color: var(--sidebar-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.menu li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+    padding-left: 10px;
+    transition: all 0.2s;
+}
+
+.menu li:hover {
+    background-color: var(--hover-color);
+}
+
+.menu li.active {
+    background-color: var(--hover-color);
+    color: var(--text-primary);
+}
+
+.menu li i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.playlists h3 {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.playlists ul {
+    list-style: none;
+}
+
+.playlists li {
+    padding: 8px 0;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.playlists li:hover {
+    color: var(--text-primary);
+}
+
+.playlists li.active {
+    color: var(--text-primary);
+}
+
+.main-content {
+    background: linear-gradient(to bottom, #3a3a3a, #121212);
+    overflow-y: auto;
+    padding-bottom: 90px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navigation button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.navigation button:hover {
+    background-color: var(--hover-color);
+    color: var(--text-primary);
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.user:hover {
+    background-color: var(--hover-color);
+}
+
+.user img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.content {
+    padding: 0 30px;
+}
+
+.album-header {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.album-header img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin-right: 20px;
+}
+
+.album-info {
+    flex: 1;
+}
+
+.album-info span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.album-info h1 {
+    font-size: 4rem;
+    margin: 10px 0;
+    font-weight: bold;
+    letter-spacing: -2px;
+}
+
+.album-info p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.album-stats {
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.album-stats span {
+    margin-right: 15px;
+    text-transform: none;
+    font-size: 0.9rem;
+}
+
+.album-stats i {
+    color: var(--accent-color);
+    margin-right: 5px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.play-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 20px;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+    background-color: #1ed760;
+}
+
+.follow-btn {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-secondary);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.follow-btn:hover {
+    border-color: var(--text-primary);
+}
+
+.songs-list {
+    margin-bottom: 100px;
+}
+
+.list-header {
+    display: grid;
+    grid-template-columns: 50px 3fr 2fr 1fr;
+    padding: 10px 20px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.song {
+    display: grid;
+    grid-template-columns: 50px 3fr 2fr 1fr;
+    padding: 10px 20px;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.song:hover {
+    background-color: var(--hover-color);
+}
+
+.song.active {
+    background-color: rgba(30, 215, 96, 0.1);
+}
+
+.song.active .song-title {
+    color: var(--accent-color);
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+}
+
+.song-info img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.song-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.song-artist {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.player-bar {
+    background-color: var(--player-bar-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+}
+
+.song-info img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.song-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.song-artist {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.like-btn:hover {
+    color: var(--text-primary);
+}
+
+.player-controls-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.player-controls-center .buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.player-controls-center button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.player-controls-center button:hover {
+    color: var(--text-primary);
+}
+
+.player-controls-center .play-btn-main {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    background-color: var(--text-primary);
+    padding: 7px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    user-select: none;
+    -webkit-app-region: drag; /* Permite que o cabeçalho seja usado para arrastar a janela */
+  }
+  
+  .window-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .window-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .window-control {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #aaa;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilos individuais para cada botão */
+  .window-control.minimize {
+    background-color: #ffcc00;
+  }
+  
+  .window-control.maximize {
+    background-color: #00cc00;
+  }
+  
+  .window-control.close {
+    background-color: #ff0000;
+  }
+  
+  .window-control:hover {
+    background-color: #555;
+  }
+  
+  /* Se o usuário clicar em um controle, muda a cor de fundo */
+  .window-control:active {
+    background-color: #222;
+  }
+  
+  
+.player-controls-center .play-btn-main:hover {
+    transform: scale(1.05);
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.time-current, .time-total {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    min-width: 40px;
+}
+
+.time-current {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.time-total {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background-color: var(--progress-bar);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--progress-bar-active);
+    border-radius: 2px;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--text-primary);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.progress-bar:hover .progress::after {
+    opacity: 1;
+}
+
+.player-controls-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.player-controls-right button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.player-controls-right button:hover {
+    color: var(--text-primary);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.volume-control i {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-right: 10px;
+}
+
+.volume-bar {
+    width: 100px;
+    height: 4px;
+    background-color: var(--progress-bar);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.volume-level {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    background-color: var(--progress-bar-active);
+    border-radius: 2px;
+}
+
+.volume-level::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--text-primary);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.volume-bar:hover .volume-level::after {
+    opacity: 1;
+}
+
+/* Windows 11 specific styling */
+.windows-11-container {
+    background: rgba(18, 18, 18, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar {
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.main-content {
+    background: linear-gradient(to bottom, rgba(58, 58, 58, 0.8), rgba(18, 18, 18, 0.8));
+    backdrop-filter: blur(10px);
+}
+
+.player-bar {
+    background: rgba(24, 24, 24, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
